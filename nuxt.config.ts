@@ -26,7 +26,9 @@ export default defineNuxtConfig({
   },
 
   css: [],
-  modules: ['@nuxt/fonts', 'vuetify-nuxt-module', '@nuxt/eslint','~/modules/pages','~/modules/pagination'],
+  modules: ['@nuxt/fonts', 'vuetify-nuxt-module', '@nuxt/eslint','~/modules/pages','~/modules/pagination', '~/modules/modal'],
+
+
 
   vuetify: {
     moduleOptions: {

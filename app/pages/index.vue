@@ -10,5 +10,12 @@
     >
       Test Page
     </NuxtLink>
+    <NuxtLink
+      class="underline"
+      to="/modal"
+    >
+      Modal Page
+    </NuxtLink>
   <HelloWorld />
+   <NuxtPage />
 </template>
