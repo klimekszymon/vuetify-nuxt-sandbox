@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <AppDrawer />
     <v-main>
       <slot />
     </v-main>
