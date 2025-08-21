@@ -6,13 +6,19 @@
           <v-card-title class="d-flex align-center">
             Clients
             <v-spacer />
-            <v-btn color="primary" @click="openDialog('create')">Create Client</v-btn>
+            <v-btn color="primary" @click="openDialog('create')"
+              >Create Client</v-btn
+            >
           </v-card-title>
           <v-list>
             <v-list-item v-for="client in clients" :key="client.id">
               <v-list-item-title>{{ client.name }}</v-list-item-title>
               <template #append>
-                <v-btn icon="mdi-pencil" variant="text" @click="openDialog('edit', client.id)" />
+                <v-btn
+                  icon="mdi-pencil"
+                  variant="text"
+                  @click="openDialog('edit', client.id)"
+                />
               </template>
             </v-list-item>
           </v-list>
@@ -20,17 +26,13 @@
       </v-col>
     </v-row>
 
-    <CrudDialog
-      v-model="isDialogOpen"
-      :title="dialogTitle"
-      @save="onSave"
-    >
+    <CrudDialog v-model="isDialogOpen" :title="dialogTitle" @save="onSave">
       <!-- Form for creating/editing a client -->
       <v-form ref="form">
         <v-text-field
           v-model="editableClient.name"
           label="Client Name"
-          :rules="[v => !!v || 'Name is required']"
+          :rules="[(v) => !!v || 'Name is required']"
           required
         />
       </v-form>
@@ -49,7 +51,10 @@ const clients = ref([
   { id: 3, name: 'Client C' },
 ])
 
-const editableClient = reactive<{ id: number | null; name: string }>({ id: null, name: '' })
+const editableClient = reactive<{ id: number | null; name: string }>({
+  id: null,
+  name: '',
+})
 
 const onSave = () => {
   // In a real app, you'd validate the form and save the data
@@ -59,8 +64,9 @@ const onSave = () => {
     clients.value.push({ id: Date.now(), name: editableClient.name })
   } else {
     // Update in list
-    const index = clients.value.findIndex(c => c.id === editableClient.id)
+    const index = clients.value.findIndex((c) => c.id === editableClient.id)
     if (index !== -1) {
+      // @ts-ignore
       clients.value[index] = { ...editableClient }
     }
   }
@@ -78,7 +84,7 @@ const dialogTitle = computed(() => {
 // This runs on component setup and whenever the dependencies change.
 watchEffect(() => {
   if (action.value === 'edit' && itemId.value) {
-    const client = clients.value.find(c => c.id === Number(itemId.value))
+    const client = clients.value.find((c) => c.id === Number(itemId.value))
     if (client) {
       Object.assign(editableClient, client)
     } else {
