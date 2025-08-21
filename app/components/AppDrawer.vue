@@ -19,19 +19,20 @@ drawerState.value = lgAndUp.value && width.value !== 1280
 
 const routes = [
   { label: 'Home', to: '/' },
-  { label: 'About', to: '/about' },
+  // { label: 'Products', to: '/products' },
   { label: 'Parent (index)', to: '/parent' },
   { label: 'Parent (b)', to: '/parent/b' },
-  {
-    label: 'Keyed child',
-    onClick: () =>
-      router.push(`/parent/reload-${(Math.random() * 100).toFixed()}`),
-  },
-  {
-    label: 'Non-Keyed child',
-    onClick: () =>
-      router.push(`/parent/static-${(Math.random() * 100).toFixed()}`),
-  },
+  { label: 'Clients', to: '/clients' },
+  // {
+  //   label: 'Keyed child',
+  //   onClick: () =>
+  //     router.push(`/parent/reload-${(Math.random() * 100).toFixed()}`),
+  // },
+  // {
+  //   label: 'Non-Keyed child',
+  //   onClick: () =>
+  //     router.push(`/parent/static-${(Math.random() * 100).toFixed()}`),
+  // },
 ]
 </script>
 
@@ -65,6 +66,18 @@ const routes = [
     </template>
     <v-list nav density="compact">
       <AppDrawerItem v-for="route in routes" :key="route.label" :item="route" />
+      <v-list-item
+        title="Non-Keyed child"
+        @click="
+          () => router.push(`/parent/static-${(Math.random() * 100).toFixed()}`)
+        "
+      />
+      <v-list-item
+        title="Non-Keyed child"
+        @click="
+          () => router.push(`/parent/static-${(Math.random() * 100).toFixed()}`)
+        "
+      />
     </v-list>
     <v-spacer />
     <template #append>
