@@ -1,0 +1,6 @@
+{
+    "vue.server.compatibleExtensions": [
+        "GitHub.copilot-chat"
+      ],
+      "editor.formatOnSave": true,
+}

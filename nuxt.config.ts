@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   future: {
-    compatibilityVersion: 4
+    compatibilityVersion: 4,
   },
 
   ssr: true,
@@ -26,9 +26,14 @@ export default defineNuxtConfig({
   },
 
   css: [],
-  modules: ['@nuxt/fonts', 'vuetify-nuxt-module', '@nuxt/eslint','~/modules/pages','~/modules/pagination', '~/modules/modal'],
-
-
+  modules: [
+    'vuetify-nuxt-module',
+    '@nuxt/eslint',
+    '~/modules/pages',
+    '~/modules/pagination',
+    '~/modules/modal',
+    '@nuxt/eslint',
+  ],
 
   vuetify: {
     moduleOptions: {
